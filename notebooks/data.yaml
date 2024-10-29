@@ -1,0 +1,37 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# COCO 2017 dataset https://cocodataset.org by Microsoft
+# Documentation: https://docs.ultralytics.com/datasets/detect/coco/
+# Example usage: yolo train data=coco.yaml
+# parent
+# ├── ultralytics
+# └── datasets
+#     └── coco  ← downloads here (20.1 GB)
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: data/dataset
+train: train.txt # train images (relative to 'path') 118287 images
+val: val.txt # val images (relative to 'path') 5000 images
+test: test.txt # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+
+# Classes
+names:
+  0: 1_Auto Privado
+  1: 13_Bus
+  2: 11_Camioneta rural
+  3: 12_Microbus
+  4: 4_Mototaxi
+  5: 5_Moto lineal
+  6: 9_Omnibus Interprovincial
+  7: 10_Auto colectivo
+  8: 14_Articulado
+  9: 2_Cam. PickUp
+  10: 3_Taxi
+  11: 6_Bicicletas
+  12: 7_Scooter
+  13: 8_TransportenEscolar Personal
+  14: 15_TC_Ligeros
+  15: 16_TC Pesados
+  16: 17_TC SemiTrailler Trailer
+  17: 18_Triciclo
+  18: 19_Ambulancia
+
