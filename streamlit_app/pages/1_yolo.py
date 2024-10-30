@@ -6,7 +6,7 @@ from ultralytics import YOLO
 
 st.set_page_config(layout='wide')
 
-model = YOLO("yolov8n.pt")
+model = YOLO("../models/yolov8n.pt")
 
 options = ['airplane', 'apple', 'backpack', 'banana', 'baseball bat', 'baseball glove', 'bear', 'bed', 'bench', 'bicycle', 
            'bird', 'boat', 'book', 'bottle', 'bowl', 'broccoli', 'bus', 'cake', 'car', 'carrot', 'cat', 'cell phone', 
@@ -97,13 +97,13 @@ def show_video_frame_with_boxes(video_path, reduction_factor=1):
                                     frame.shape[0] // reduction_factor))
 
             # Example of adding bounding boxes (Modify as needed)
-            results = model(frame, classes=keys_for_values)
+            results = model(frame)#, classes=selected_classes)
             for x,y,w,h in results[0].boxes.xywh:
                 x, y, w, h = int(x.item()), int(y.item()), int(w.item()), int(h.item())
                 dummy = cv2.rectangle(frame, (int(x-w/2), int(y-h/2)), (int(x + w/2), int(y + h/2)), (255, 0, 0), 2) 
 
             # Display the frame in the placeholder
-            frame_placeholder.image(frame, channels='RGB')
+            frame_placeholder.image(dummy, channels='RGB')
             current_frame += 1
             time.sleep(0.03)  # Adjust delay as needed
         else:
