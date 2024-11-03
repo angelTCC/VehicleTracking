@@ -87,3 +87,30 @@ ChatGPT
 2. **Run the app**
 
 ## Result
+
+
+Acceptable values for these metrics depend on the use case, but here’s a general guideline for evaluating your YOLO vehicle detection model:
+
+### 1. **mAP@50** 
+   - **Acceptable range**: Typically, an mAP@50 of **60-80%** or higher is considered good for many object detection tasks. If your application demands high accuracy (like traffic monitoring or autonomous driving), aim for 75% or above.
+   - **Good performance**: Above **80%** is excellent, indicating the model is detecting vehicle classes well with a reasonable overlap.
+
+### 2. **mAP@50-95**
+   - **Acceptable range**: mAP@50-95 is generally more challenging to optimize, so values above **50%** are often considered good. For high-stakes applications, **60%** or more would be preferred.
+   - **Good performance**: Anything around **60-70%** and higher for mAP@50-95 is excellent. It shows the model can detect vehicles with high precision across varying overlap thresholds.
+
+### 3. **Precision**
+   - **Acceptable range**: Precision above **70%** is typically considered acceptable, meaning the model’s detections are largely accurate, with minimal false positives.
+   - **Good performance**: Precision above **80-90%** indicates that the model is confidently and accurately identifying vehicles without much misclassification.
+
+### 4. **Recall**
+   - **Acceptable range**: For recall, aim for at least **70%** to ensure the model is catching most vehicles present in each image.
+   - **Good performance**: Recall values above **80%** suggest that the model is identifying nearly all vehicles, even if it occasionally makes mistakes.
+
+### Summary of Acceptable Ranges
+- **mAP@50**: 60-80% (Good: 80%+)
+- **mAP@50-95**: 50-60% (Good: 60-70%+)
+- **Precision**: 70-80% (Good: 80-90%+)
+- **Recall**: 70-80% (Good: 80%+)
+
+These values can vary based on the dataset, model architecture, and application requirements. If your model’s metrics fall within these ranges, you’re likely on track! However, if any metric is significantly below these values, further tuning or additional training data might be needed.
