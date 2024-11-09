@@ -1,27 +1,35 @@
 # 🚗 Vehicle Tracking 🛣️
 
-This project fine-tunes a YOLO model to detect, classify, and count vehicles as they cross a designated line. It is designed for traffic monitoring and vehicle analytics, providing real-time insights into vehicle flow.
+This project leverages a fine-tuned YOLO model for vehicle detection and tracking, enabling 
+automated counting of various vehicle types as they cross a designated line using a single camera or 
+video feed. By replacing manual tracking methods with advanced computer vision techniques, the system 
+provides accurate real-time data on traffic flow, which can be used to inform transportation control 
+decisions. This automation enhances efficiency, improves data accuracy, and supports smarter transportation management.
 
-- **Hardward**
+![image](Isolated.png "Title")
 
-| Computer    | GPU | CPU   | NVIDIA | MEMORY | Recall | Observation |
-| ----- |---| ------- | -------- | --------- | ------ | ----|
-| fc |---| ------- | -------- | --------- | ------ |
-
-- **yolov11 for detection**
-
-| model    |Run#| mAP50   | mAP50-95 | Presicion | Recall |*| freeze | lr0-lrf |  bacth | epoch| time(m) | %GPU | Computer | Observation |
-| -------- |---| ------- | -------- | --------- | ------ |--| ----- |----- |-----| -----| ----| ---- |----|----|
-| yolov11n | - |   -     |  -       | -         |  -     |*| 5 | 0.01-0.005 | 8 | 100 | --|  35% |  fc |
-| yolo11s | - |   -     |  -       | -         |  -     |*|  - |- |-|-|
-| yolo11m | - |   -     |  -       | -         |  -     |*| - |- |-|
-| yolo11l | - |   -     |  -       | -         |  -     |*| - |- |-|
-| yolo11x | - |   -     |  -       | -         |  -     |*| - |- |-|
 
 ## ✨ Features
 - **🚙 Vehicle Detection**: Detects multiple types of vehicles (e.g., cars, trucks, motorcycles).
 - **🔢 Vehicle Counting**: Counts vehicles as they cross a specific line in the frame.
 - **📊 Classification**: Classifies vehicles into predefined categories.
+
+### Metrics
+
+
+| Metric       | Definition                                          | Acceptable Range       | Good Performance                  |
+|--------------|-----------------------------------------------------|------------------------|-----------------------------------|
+| **mAP@50**   | Mean Average Precision at 50% IoU (Intersection over Union); measures detection accuracy with 50% overlap | 60-80% or higher       | Above 80%                         |
+| **mAP@50-95**| Mean Average Precision across IoU thresholds from 50% to 95%; assesses accuracy at various overlap levels | Above 50%              | 60-70% or higher                  |
+| **Precision**| Ratio of true positives to total positive predictions; indicates accuracy of detections | Above 70%              | 80-90%                            |
+| **Recall**   | Ratio of true positives to total actual positives; measures detection coverage | At least 70%           | Above 80%                         |
+
+### Hardward
+
+| Computer    | GPU              | CPU                                                    | NVIDIA                 | MEMORY  | Observation |
+| ----- |---| ------- | -------- | ---------  | ----|
+| fc | Dedicada 4GB, compartida 16GB| AND Ryzen Thraddripper 3960X 24-core (48 CPUs), 3.8GHz | NVIDIA Quadro P1000   | 32GB |             |
+
 
 
 ## 📁 Project Structure
@@ -64,6 +72,24 @@ The model outputs:
 - Real-time vehicle detection and classification.
 - Vehicle counts as they cross a designated line in the frame.
 
+Data:
+- Dataset 1: 0.2 terst 0.2 val 3965train 897test 793val stratief
+- Dataset 2:                                           random
+
+### Summary of Acceptable Ranges
+- **mAP@50**: 60-80% (Good: 80%+)
+- **mAP@50-95**: 50-60% (Good: 60-70%+)
+- **Precision**: 70-80% (Good: 80-90%+)
+- **Recall**: 70-80% (Good: 80%+)
+
+| model    |name#             | mAP50   | mAP50-95 | Presicion | Recall | freeze | lr0-lrf    |  bacth | epoch | time      | %GPU | Computer | Data      |
+| -------- |--------------    | ------- | -------- | --------- | ------ | -----  |-----       |-----   | ----- | ----         | ---- |----      |----       |
+| yolov11n | yolov11_runs7    |   -     |  -       | -         |  -     | 5      | 0.01-0.005 | 8      | 100   | 4.506 hours  |  35% |  fc      | dataset1 |
+| yolov11n | yolov11_runs12   |   -     |  -       | -         |  -     | 20     | 0.01-0.005 | 16     | 200   | -            |  20% |  fc      | dataset1 |
+| yolov11m | yolov11_runs13   |   -     |  -       | -         |  -     | 20     | 0.01-0.005 | 16     | 300   | 2 dias       |  25% |  fc      | dataset1 |
+| yolov8m  | yolov8_runs4     |   -     |  -       | -         |  -     | 20     | 0.01-0.005 | 16     | 300   | 1.14 dias    |  20% |  fc      | dataset1 |
+| model  | - |   -          |  -      | -         |  -     | - |- |-|
+
 
 ## 🤝 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
@@ -77,40 +103,3 @@ This project is licensed under the MIT License.
 You can replace your-username with your actual GitHub username and adjust paths or descriptions as needed. This structure is ready to paste directly into a README.md file for a polished, professional look!
 ChatGPT said:
 ChatGPT
-
-
-
-
-
-1. **Clone the repository and set the enviroment**:
-
-2. **Run the app**
-
-## Result
-
-
-Acceptable values for these metrics depend on the use case, but here’s a general guideline for evaluating your YOLO vehicle detection model:
-
-### 1. **mAP@50** 
-   - **Acceptable range**: Typically, an mAP@50 of **60-80%** or higher is considered good for many object detection tasks. If your application demands high accuracy (like traffic monitoring or autonomous driving), aim for 75% or above.
-   - **Good performance**: Above **80%** is excellent, indicating the model is detecting vehicle classes well with a reasonable overlap.
-
-### 2. **mAP@50-95**
-   - **Acceptable range**: mAP@50-95 is generally more challenging to optimize, so values above **50%** are often considered good. For high-stakes applications, **60%** or more would be preferred.
-   - **Good performance**: Anything around **60-70%** and higher for mAP@50-95 is excellent. It shows the model can detect vehicles with high precision across varying overlap thresholds.
-
-### 3. **Precision**
-   - **Acceptable range**: Precision above **70%** is typically considered acceptable, meaning the model’s detections are largely accurate, with minimal false positives.
-   - **Good performance**: Precision above **80-90%** indicates that the model is confidently and accurately identifying vehicles without much misclassification.
-
-### 4. **Recall**
-   - **Acceptable range**: For recall, aim for at least **70%** to ensure the model is catching most vehicles present in each image.
-   - **Good performance**: Recall values above **80%** suggest that the model is identifying nearly all vehicles, even if it occasionally makes mistakes.
-
-### Summary of Acceptable Ranges
-- **mAP@50**: 60-80% (Good: 80%+)
-- **mAP@50-95**: 50-60% (Good: 60-70%+)
-- **Precision**: 70-80% (Good: 80-90%+)
-- **Recall**: 70-80% (Good: 80%+)
-
-These values can vary based on the dataset, model architecture, and application requirements. If your model’s metrics fall within these ranges, you’re likely on track! However, if any metric is significantly below these values, further tuning or additional training data might be needed.
