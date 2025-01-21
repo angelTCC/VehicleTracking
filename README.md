@@ -4,15 +4,19 @@ This project leverages a fine-tuned YOLO model for vehicle detection and trackin
 automated counting of various vehicle types as they cross a designated line using a single camera or 
 video feed. By replacing manual tracking methods with advanced computer vision techniques, the system 
 provides accurate real-time data on traffic flow, which can be used to inform transportation control 
-decisions. This automation enhances efficiency, improves data accuracy, and supports smarter transportation management.
-
-![image](Isolated.png "Title")
+decisions.
+<!--
+This automation enhances efficiency, improves data accuracy, and supports smarter transportation management.
+-->
+![image](./static/output.png "Title")
 
 
 ## ✨ Features
 - **🚙 Vehicle Detection**: Detects multiple types of vehicles (e.g., cars, trucks, motorcycles).
 - **🔢 Vehicle Counting**: Counts vehicles as they cross a specific line in the frame.
 - **📊 Classification**: Classifies vehicles into predefined categories.
+
+<!--
 
 ### Metrics
 
@@ -24,12 +28,13 @@ decisions. This automation enhances efficiency, improves data accuracy, and supp
 | **Precision**| Ratio of true positives to total positive predictions; indicates accuracy of detections | Above 70%              | 80-90%                            |
 | **Recall**   | Ratio of true positives to total actual positives; measures detection coverage | At least 70%           | Above 80%                         |
 
+
 ### Hardward
 
 | Computer    | GPU              | CPU                                                    | NVIDIA                 | MEMORY  | Observation |
 | ----- |---| ------- | -------- | ---------  | ----|
 | fc | Dedicada 4GB, compartida 16GB| AND Ryzen Thraddripper 3960X 24-core (48 CPUs), 3.8GHz | NVIDIA Quadro P1000   | 32GB |             |
-
+-->
 
 
 ## 📁 Project Structure
@@ -67,7 +72,7 @@ bash
     ```
 
 ## 📈 Results
-
+<!--
 The model outputs:
 - Real-time vehicle detection and classification.
 - Vehicle counts as they cross a designated line in the frame.
@@ -89,7 +94,7 @@ Data:
 | yolov11m | yolov11_runs13   |   -     |  -       | -         |  -     | 20     | 0.01-0.005 | 16     | 300   | 2 dias       |  25% |  fc      | dataset1 |
 | yolov8m  | yolov8_runs4     |   -     |  -       | -         |  -     | 20     | 0.01-0.005 | 16     | 300   | 1.14 dias    |  20% |  fc      | dataset1 |
 | model  | - |   -          |  -      | -         |  -     | - |- |-|
-
+-->
 
 ## 🤝 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
